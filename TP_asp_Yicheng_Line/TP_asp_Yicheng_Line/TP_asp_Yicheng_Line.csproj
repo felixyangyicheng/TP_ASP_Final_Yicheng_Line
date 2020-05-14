@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TP_asp_Yicheng_Line.DB\TP_asp_Yicheng_Line.DB.csproj" />
+  </ItemGroup>
+
 </Project>
