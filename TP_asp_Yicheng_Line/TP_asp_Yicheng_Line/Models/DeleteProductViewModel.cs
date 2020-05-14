@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace TP_asp_Yicheng_Line.Models
 {
-    public class DeleteCategoryViewModel
+    public class DeleteProductViewModel
     {
-        public bool CategoryIsDeleted { get; set; }
+        public bool ProductIsDeleted { get; set; }
     }
 }
