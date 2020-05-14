@@ -27,8 +27,9 @@ namespace TP_asp_Yicheng_Line.Controllers
         public IActionResult Index()
         {
             CategoryContext questCategories = new CategoryContext(connectionString);
-
-
+            List<Category> categories = questCategories.GetAll();
+            AcceuilViewModel model = new AcceuilViewModel();
+            model.Categories = categories;
             return View(model);
             
         }
