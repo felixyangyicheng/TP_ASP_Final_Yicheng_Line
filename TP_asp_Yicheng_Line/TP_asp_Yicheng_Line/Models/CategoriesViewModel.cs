@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,8 @@ using TP_asp_Yicheng_Line.DB.Models;
 
 namespace TP_asp_Yicheng_Line.Models
 {
-    public class AcceuilViewModel
+    public class CategoriesViewModel
     {
         public List<Category> Categories { get; set; }
-        public List<Product> Products { get; set; }
     }
-    
 }

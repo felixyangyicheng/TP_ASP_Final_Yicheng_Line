@@ -8,10 +8,8 @@ using TP_asp_Yicheng_Line.DB.Models;
 
 namespace TP_asp_Yicheng_Line.Models
 {
-    public class AcceuilViewModel
+    public class ProductsViewModel
     {
-        public List<Category> Categories { get; set; }
         public List<Product> Products { get; set; }
     }
-    
 }

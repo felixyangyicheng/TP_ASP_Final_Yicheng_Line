@@ -23,7 +23,7 @@ namespace TP_asp_Yicheng_Line.DB
             {
                 c.Open();
                 MySqlCommand command = c.CreateCommand();
-                command.CommandText = "SELECT identifiant, libelle FROM category ORDER BY identifiant";
+                command.CommandText = "SELECT identifiant, libelle, date FROM category ORDER BY identifiant";
 
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
@@ -31,6 +31,7 @@ namespace TP_asp_Yicheng_Line.DB
                     Category category = new Category();
                     category.Identifiant = reader.GetInt32("identifiant");
                     category.Libelle = reader.GetString("libelle");
+                    category.Date = reader.GetDateTime("date");
                     categories.Add(category);
                 }
 
@@ -47,7 +48,7 @@ namespace TP_asp_Yicheng_Line.DB
             {
                 c.Open();
                 MySqlCommand command = c.CreateCommand();
-                command.CommandText = "@SELECT identifiant, libelle FROM category WHERE identifiant=@identifiant";
+                command.CommandText = "@SELECT identifiant, libelle, date FROM category WHERE identifiant=@identifiant";
                 command.Parameters.AddWithValue("identifiant", id);
 
                 MySqlDataReader reader = command.ExecuteReader();
@@ -56,7 +57,8 @@ namespace TP_asp_Yicheng_Line.DB
                     category = new Category();
                     category.Identifiant = reader.GetInt32("identifiant");
                     category.Libelle = reader.GetString("libelle");
-                   
+                    category.Date = reader.GetDateTime("date");
+
                 }
 
 
@@ -72,10 +74,11 @@ namespace TP_asp_Yicheng_Line.DB
             {
                 c.Open();
                 MySqlCommand command = c.CreateCommand();
-                command.CommandText = "INSERT INTO category(libelle) VALUE(@libelle)";
+                command.CommandText = "INSERT INTO category(libelle, date) VALUE(@libelle, @date)";
 
                 command.Parameters.AddWithValue("libelle", category.Libelle);
-          
+                command.Parameters.AddWithValue("date", category.Date);
+
 
                 nbLignes = command.ExecuteNonQuery();
 
@@ -91,12 +94,13 @@ namespace TP_asp_Yicheng_Line.DB
                 c.Open();
                 MySqlCommand command = c.CreateCommand();
                 command.CommandText = @"
-                        UPDATE bugs SET libelle = @libelle 
+                        UPDATE bugs SET libelle = @libelle, date=@date
                         WHERE identifiant = @identifiant
                     ";
 
                 command.Parameters.AddWithValue("identifiant", category.Identifiant);
                 command.Parameters.AddWithValue("libelle", category.Libelle);
+                command.Parameters.AddWithValue("date", category.Date);
                 nbLignes = command.ExecuteNonQuery();
 
             }
