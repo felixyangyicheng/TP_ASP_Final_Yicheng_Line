@@ -1,8 +1,33 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model ProductsViewModel
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
+    <h2 class="display-3">Liste de produit</h2>
+
+    <table class="table">
+        <tr>
+            <td>Identifiant</td>
+            <td>Titre</td>
+            <td>Prix</td>
+            <td>Identifiant Catégorie</td>
+      
+        </tr>
+
+
+        @foreach(TP_asp_Yicheng_Line.DB.Models.Product product in Model.Products)
+        {
+            <tr>
+                <td>@product.Identifiant</td>
+                <td>@product.Titre</td>
+                <td>@product.Prix</td>
+                <td>@product.IdentifiantCategory</td>
+               
+            </tr>
+        }
+
+    </table>
+
+   
+
     <p>Learn about <a href="https://github.com/tawfiqct">building Web apps with diverse computing technologies</a>.</p>
 </div>
