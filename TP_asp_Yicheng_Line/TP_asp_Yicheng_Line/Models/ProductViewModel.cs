@@ -11,7 +11,7 @@ namespace TP_asp_Yicheng_Line.Models
     public class ProductViewModel
     {
         [HiddenInput]
-        public int? Indentifiant { get; set; }
+        public int? Identifiant { get; set; }
 
         [Required(ErrorMessage = "Le titre du produit est requis")]
 
