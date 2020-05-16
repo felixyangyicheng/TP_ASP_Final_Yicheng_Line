@@ -1,0 +1,48 @@
+﻿@model ProductViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Modifier un produit</h1>
+
+<div class="container">
+    <form asp-action="Edit" method="post">
+        @*Identifiant
+            Titre
+            Prix
+           
+            IdentifiantCategory*@
+
+        <input asp-for="Identifiant" type="hidden" class="form-control" />
+        <div class="form-group">
+            <label asp-for="Titre" class="control-label"></label>
+            <input asp-for="Titre" class="form-control" />
+            <span asp-validation-for="Titre" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Prix" class="control-label"></label>
+            <input asp-for="Prix" class="form-control" />
+            <span asp-validation-for="Prix" class="text-danger"></span>
+        </div>
+        @*<div class="form-group form-check">
+            <label class="form-check-label"> // check box
+                <input class="form-check-input" asp-for="EstBloquant" /> @Html.DisplayNameFor(model => model.EstBloquant)
+            </label>
+        </div>*@
+        <div class="form-group">
+
+            <label asp-for="IdentifiantCategory" class="control-label"></label>
+
+            <select class="form-control" asp-for="IdentifiantCategory" asp-items="Model.Categories"></select>
+
+            <span asp-validation-for="IdentifiantCategory" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Sauvegarder" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+

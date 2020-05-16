@@ -1,47 +1,48 @@
-﻿
+﻿@using TP_asp_Yicheng_Line.DB.Models
 @model ProductsViewModel
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <h2 class="display-3">Liste de produit</h2>
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <h2 class="display-3">Liste de produit</h2>
 
-    <table class="table">
-        <tr>
-            <td>Identifiant</td>
-            <td>Titre</td>
-            <td>Prix</td>
-            <td>Identifiant Catégorie</td>
-            <td>Options</td>
-        </tr>
-
-
-        @foreach (TP_asp_Yicheng_Line.DB.Models.Product product in Model.Products)
-        {
+        <table class="table">
             <tr>
-                <td>@product.Identifiant</td>
-                <td>@product.Titre</td>
-                <td>@product.Prix</td>
-                <td>@product.IdentifiantCategory</td>
-                <td>
-                    @{
-                        Dictionary<string, string> parameters = new Dictionary<string, string>();
-
-                        parameters.Add("id", product.Identifiant.ToString());
-                    }
-                    <a asp-controller="Product" asp-action="Delete" asp-all-route-data="parameters" class="btn btn-danger">
-                        <i class="far fa-trash-alt"></i>
-                    </a>
-
-                    <a asp-controller="Product" asp-action="Edit" asp-all-route-data="parameters" class="btn btn-danger">
-                        <i class="far fa-trash-alt"></i>
-                    </a>
-
-                </td>
+                <td>Identifiant</td>
+                <td>Titre</td>
+                <td>Prix</td>
+                <td>Identifiant Catégorie</td>
+                <td>Options</td>
             </tr>
-        }
 
-    </table>
 
-    <a asp-controller="Product" asp-action="Create" class="btn btn-primary">Ajouter un Produit</a>
+            @foreach (Product product in Model.Products)
+            {
+                <tr>
+                    <td>@product.Identifiant</td>
+                    <td>@product.Titre</td>
+                    <td>@product.Prix</td>
+                    <td>@product.IdentifiantCategory</td>
+                    <td>
+                        @{
+                            Dictionary<string, string> parameters = new Dictionary<string, string>();
 
-    <p>Learn about <a href="https://github.com/tawfiqct">building Web apps with diverse computing technologies</a>.</p>
+                            parameters.Add("id", product.Identifiant.ToString());
+                        }
+                        <a asp-controller="Product" asp-action="Delete" asp-all-route-data="parameters" class="btn btn-danger">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+
+                        <a asp-controller="Product" asp-action="Edit" asp-all-route-data="parameters" class="btn btn-danger">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        <a asp-controller="Product" asp-action="Create" class="btn btn-primary">Ajouter un Produit</a>
+
+        <p>Learn about <a href="https://github.com/tawfiqct">building Web apps with diverse computing technologies</a>.</p>
+    </div>

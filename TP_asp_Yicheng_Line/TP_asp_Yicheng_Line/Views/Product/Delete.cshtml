@@ -1,0 +1,26 @@
+﻿
+@model DeleteProductViewModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h1>Suppression</h1>
+
+@if (Model.ProductIsDeleted)
+{
+    <text>
+        La suppression a été effectuée
+    </text>
+}
+else
+{
+    <text>
+        Suppression impossible
+    </text>
+}
+
+
+
+

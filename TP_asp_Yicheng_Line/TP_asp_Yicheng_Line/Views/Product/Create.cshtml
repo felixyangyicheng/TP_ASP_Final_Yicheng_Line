@@ -1,0 +1,48 @@
+﻿@model ProductViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Ajouter un nouveau produit</h1>
+
+
+<div class="container">
+    <form asp-action="Create" method="post">
+        @*Identifiant
+            Titre
+            Prix
+       
+            IdentifiantCategory*@
+
+        <input asp-for="Identifiant" class="form-control" />
+        <div class="form-group">
+            <label asp-for="Titre" class="control-label"></label>
+            <input asp-for="Titre" class="form-control" />
+            <span asp-validation-for="Titre" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Prix" class="control-label"></label>
+            <input asp-for="Prix" class="form-control" />
+            <span asp-validation-for="Prix" class="text-danger"></span>
+        </div>
+    
+
+        <div class="form-group">
+
+            <label asp-for="IdentifiantCategory" class="control-label"></label>
+
+            <select class="form-control" asp-for="IdentifiantCategory" asp-items="Model.Categories"></select>
+
+            <span asp-validation-for="IdentifiantCategory" class="text-danger"></span>
+        </div>
+
+
+
+        <div class="form-group">
+            <input type="submit" value="Sauvegarder" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+
