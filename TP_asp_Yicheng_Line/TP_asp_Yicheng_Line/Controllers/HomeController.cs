@@ -18,10 +18,10 @@ namespace TP_asp_Yicheng_Line.Controllers
         private readonly ILogger<HomeController> _logger;
         private string connectionString;
 
-        public HomeController(ILogger<HomeController> logger, IConfiguration configurationRoot)
+        public HomeController(ILogger<HomeController> logger, IConfiguration configRoot)
         {
             _logger = logger;
-            connectionString = configurationRoot["ConnectionString:DefaultConnection"];
+            connectionString = configRoot["ConnectionString:DefaultConnection"];
         }
 
         public IActionResult Index()

@@ -21,6 +21,7 @@ namespace TP_asp_Yicheng_Line.DB
             List<Category> categories = new List<Category>();
             using (MySqlConnection c= new MySqlConnection(connectionString))
             {
+             
                 c.Open();
                 MySqlCommand command = c.CreateCommand();
                 command.CommandText = "SELECT identifiant, libelle, date FROM category ORDER BY identifiant";
@@ -29,9 +30,11 @@ namespace TP_asp_Yicheng_Line.DB
                 while (reader.Read())
                 {
                     Category category = new Category();
+
                     category.Identifiant = reader.GetInt32("identifiant");
                     category.Libelle = reader.GetString("libelle");
                     category.Date = reader.GetDateTime("date");
+
                     categories.Add(category);
                 }
 
