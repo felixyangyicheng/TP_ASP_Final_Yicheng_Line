@@ -48,7 +48,7 @@ namespace TP_asp_Yicheng_Line.DB
             {
                 c.Open();
                 MySqlCommand command = c.CreateCommand();
-                command.CommandText = @"SELECT identifiant, titre, prix, identifiantSeverite FROM products
+                command.CommandText = @"SELECT identifiant, titre, prix, identifiantSeverite FROM product
                   WHERE identifiant = @identifiant";
 
                 command.Parameters.AddWithValue("identifiant", id);

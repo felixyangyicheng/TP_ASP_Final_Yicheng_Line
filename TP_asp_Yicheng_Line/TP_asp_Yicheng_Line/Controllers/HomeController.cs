@@ -21,15 +21,22 @@ namespace TP_asp_Yicheng_Line.Controllers
         public HomeController(ILogger<HomeController> logger, IConfiguration configRoot)
         {
             _logger = logger;
-            connectionString = configRoot["ConnectionString:DefaultConnection"];
+            // connectionString = configRoot["ConnectionString:DefaultConnection"];
+            connectionString = configRoot["ConnectionStrings:DefaultConnection"];
         }
 
         public IActionResult Index()
         {
             CategoryContext questCategories = new CategoryContext(connectionString);
             List<Category> categories = questCategories.GetAll();
+
+            ProductContext questProduct = new ProductContext(connectionString);
+            List<Product> products = questProduct.GetAll();
+
             AcceuilViewModel model = new AcceuilViewModel();
             model.Categories = categories;
+            model.Products = products;
+         
             return View(model);
             
         }

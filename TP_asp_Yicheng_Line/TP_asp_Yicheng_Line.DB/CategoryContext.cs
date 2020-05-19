@@ -97,7 +97,7 @@ namespace TP_asp_Yicheng_Line.DB
                 c.Open();
                 MySqlCommand command = c.CreateCommand();
                 command.CommandText = @"
-                        UPDATE bugs SET libelle = @libelle, date=@date
+                        UPDATE category SET libelle = @libelle, date=@date
                         WHERE identifiant = @identifiant
                     ";
 
