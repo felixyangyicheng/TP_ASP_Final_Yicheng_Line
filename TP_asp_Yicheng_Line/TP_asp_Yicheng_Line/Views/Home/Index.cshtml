@@ -2,7 +2,7 @@
 @model AcceuilViewModel
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Bienvenu sur la gestion des stocks</h1>
     <h2 class="display-3">Liste de produit</h2>
 
     <table class="table">
@@ -28,7 +28,31 @@
 
     </table>
 
+    <table class="table">
+        <tr>
+            <td>Identitifant</td>
+            <td>Libellé</td>
+            <td>Date</td>
+        </tr>
+
+        @foreach (Category category in Model.Categories)
+        {
+            <tr>
+                <td>@category.Identifiant </td>
+                <td>@category.Libelle</td>
+                <td>@category.Date</td>
+            </tr>
+        }
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
 
 
-    <p>Learn about <a href="https://github.com/tawfiqct">building Web apps with diverse computing technologies</a>.</p>
+
+
+
+    <p>Learn about <a href="https://github.com/tawfiqct">building Web apps with diverse computing technologies on github.com/tawfiqct</a>.</p>
 </div>
